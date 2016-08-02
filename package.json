@@ -15,6 +15,7 @@
     "mocha": "^2.5.3",
     "npm": "^2.8.3",
     "pact-consumer-js-dsl": "^0.2.2",
+    "pact-js-mocha": "^1.0.1-alpha",
     "superagent": "^2.1.0"
   },
   "scripts": {
