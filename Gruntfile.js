@@ -1,17 +1,21 @@
 var grunt = require('grunt');
-grunt.loadNpmTasks('grunt-aws');
+grunt.loadNpmTasks('grunt-aws-s3');
 
 grunt.initConfig({
-  s3: {
+  aws_s3: {
     options: {
-      bucket: 'together-pact',
-			region: "eu-central-1",
-      access: 'public-read',
+      region: 'eu-central-1',
+      uploadConcurrency: 5, // 5 simultaneous uploads
+      downloadConcurrency: 5, // 5 simultaneous downloads
     },
-		uploadPact: {
-			cwd: 'pacts/',
-			src: '**',
-			dest: 'pacts/',
-		}
-	}
+    staging: {
+      options: {
+        bucket: 'together-pact',
+        differential: true, // Only uploads the files that have changed
+      },
+      files: [
+        {expand: true, dest: 'pacts/', cwd: 'pacts/', src: ['*.json'], action: 'upload'},
+      ]
+    }
+  },
 });
