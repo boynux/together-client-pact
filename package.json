@@ -13,6 +13,8 @@
     "body-parser": "^1.15.2",
     "chai": "^3.5.0",
     "express": "^4.14.0",
+    "grunt": "^1.0.1",
+    "grunt-aws": "^0.6.2",
     "mocha": "^2.5.3",
     "npm": "^2.8.3",
     "pact-consumer-js-dsl": "^0.2.2",
